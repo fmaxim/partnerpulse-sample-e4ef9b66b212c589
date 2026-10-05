@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>window.PP_STATIC = true;</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300a884'/%3E%3Ctext x='16' y='21' font-size='13' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3EPP%3C/text%3E%3C/svg%3E" />
+<title>PartnerPulse SAMPLE · WhatsApp AI agent (sales + partner onboarding)</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="banner" id="banner">SAMPLE / PORTFOLIO DEMO · PartnerPulse is fictional · WhatsApp UX <b>mirror</b> running entirely in your browser — <b>not</b> the Meta WhatsApp Cloud API · GoHighLevel calls are <b>MOCKED</b></div>
+<div class="wm" aria-hidden="true">SAMPLE · PORTFOLIO DEMO</div>
+
+<header class="top">
+  <div class="brand"><span class="logo">PP</span><span class="bn">PartnerPulse</span><span class="tag">SAMPLE</span><span class="sep">/</span><span class="ttl">WhatsApp AI agent · prospect sales + partner onboarding</span></div>
+  <div class="topr">
+    <span class="runmode" id="runmode">connecting…</span>
+    <a class="btn ghost" id="proofLink" href="proof.html" target="_blank" rel="noopener">GHL proof ↗</a>
+  </div>
+</header>
+
+<main class="grid">
+  <aside class="col left">
+    <section class="card">
+      <h3><span class="num">1</span>Mode</h3>
+      <div class="seg" role="tablist">
+        <button data-mode="prospect" class="on">Prospect qualify</button>
+        <button data-mode="partner">Partner onboard</button>
+      </div>
+      <p class="hint" id="modeHint">A · Qualifies inbound prospects: need, company, team, current process, timeline, budget, decision maker.</p>
+    </section>
+    <section class="card">
+      <h3><span class="num">2</span>Sample leads <span class="muted">· one click</span></h3>
+      <div id="presets" class="presets"></div>
+      <div class="speed">Speed
+        <button data-speed="1" class="on">1×</button><button data-speed="2.5">2.5×</button><button data-speed="10">Fast</button>
+      </div>
+    </section>
+    <section class="card">
+      <h3><span class="num">3</span>Or test it yourself</h3>
+      <p class="hint">Type in the chat like a real lead. Things worth trying:</p>
+      <div class="tries" id="tries">
+        <button>how much?</button><button>are you a bot?</button><button>why should I trust you</button><button>ok</button><button>can I talk to a real person</button><button>stop</button>
+      </div>
+      <button class="btn full" id="resetBtn">↺ Reset chat</button>
+    </section>
+  </aside>
+
+  <section class="col phonecol">
+    <div class="phone">
+      <div class="wa-head">
+        <span class="back">‹</span>
+        <span class="avatar">PP</span>
+        <div class="who"><div class="nm">PartnerPulse <span class="vf">SAMPLE</span></div><div class="st" id="waStatus">online</div></div>
+        <div class="icons"><span>⋮</span></div>
+      </div>
+      <div class="wa-body" id="chat">
+        <div class="chip day">TODAY</div>
+        <div class="chip lock">SAMPLE demo · web mirror of WhatsApp · no messages go to Meta</div>
+      </div>
+      <form class="wa-foot" id="composer" autocomplete="off">
+        <div class="inputwrap"><span class="emo">☺</span><input id="msg" placeholder="Message" maxlength="600" /></div>
+        <button class="send" id="sendBtn" aria-label="Send">➤</button>
+      </form>
+    </div>
+  </section>
+
+  <aside class="col right">
+    <section class="card status">
+      <div class="row between"><h3>Lead status <span class="muted" id="provisional">· live</span></h3><span class="stage" id="stage">—</span></div>
+      <div class="scoreRow">
+        <div class="band" id="band">—</div>
+        <div class="scoreNum"><b id="scoreNum">0</b><span id="complete">0/0 fields</span></div>
+      </div>
+      <div class="bar"><div class="fill" id="scoreFill"></div><div class="th" id="thN"></div><div class="th" id="thQ"></div></div>
+      <div class="legend"><span>reject</span><span id="lgN">nurture ≥35</span><span id="lgQ">qualified ≥65</span></div>
+    </section>
+
+    <section class="card">
+      <h3>Why this score</h3>
+      <ul class="reasons" id="reasons"><li class="muted">Answers will appear here as the agent scores them.</li></ul>
+    </section>
+
+    <section class="card">
+      <h3>Captured fields</h3>
+      <div class="slots" id="slots"></div>
+    </section>
+
+    <section class="card">
+      <div class="row between"><h3>Human handoff</h3><button class="btn warn" id="handoffBtn">Take over as human</button></div>
+      <div id="handoffCard" class="muted small">Auto-triggers when the lead is qualified, asks for a person, or stays skeptical. Or take over manually.</div>
+    </section>
+
+    <section class="card">
+      <div class="row between"><h3>GoHighLevel <span class="mock">MOCK</span></h3><span class="muted small" id="evCount">0 events</span></div>
+      <div class="events" id="events"><div class="muted small">Pipeline updates (contact upsert, stage moves, notes, tasks) appear here.</div></div>
+    </section>
+  </aside>
+</main>
+<footer class="foot">SAMPLE / PORTFOLIO DEMO — PartnerPulse is a fictional brand; all leads are invented. Deterministic rule + template engine (no LLM in this sample). Not affiliated with WhatsApp/Meta or HighLevel.</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

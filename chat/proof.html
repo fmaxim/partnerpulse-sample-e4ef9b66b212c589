@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex,nofollow"/><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300a884'/%3E%3Ctext x='16' y='21' font-size='13' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3EPP%3C/text%3E%3C/svg%3E" />
+<title>PartnerPulse · MOCK GHL proof (in-browser, SAMPLE)</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.45 Inter,ui-sans-serif,system-ui,sans-serif;background:#fafaf9;color:#1c1917}
+.wm{position:fixed;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:800;letter-spacing:.1em;color:rgba(220,38,38,.07);transform:rotate(-18deg)}
+.banner{background:#b91c1c;color:#fff;font-weight:700;font-size:12px;padding:8px 20px}
+.wrap{max-width:1280px;margin:0 auto;padding:20px;position:relative}
+h1{font-size:22px;margin:6px 0}h2{font-size:15px;margin:24px 0 10px}.sub{color:#57534e}
+.board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(160px,1fr);gap:10px;overflow-x:auto}
+.col{background:#f5f5f4;border:1px solid #e7e5e4;border-radius:10px;padding:8px;min-height:80px}.ch{font-size:12px;font-weight:700;margin:2px 4px 8px}
+.opp{background:#fff;border:1px solid #e7e5e4;border-radius:8px;padding:8px;margin-bottom:6px;font-size:12.5px}.b{font-size:11px;font-weight:700;padding:1px 7px;border-radius:99px;background:#e7e5e4}
+.b.qualified{background:#dcfce7;color:#166534}.b.nurture{background:#fef9c3;color:#854d0e}.b.reject{background:#fee2e2;color:#991b1b}
+details{background:#fff;border:1px solid #e7e5e4;border-radius:8px;margin-bottom:6px}summary{cursor:pointer;padding:8px 12px;font-size:12.5px}summary b{color:#15803d}
+pre{margin:0;padding:10px 12px;background:#fafaf9;border-top:1px solid #e7e5e4;font-size:11.5px;white-space:pre-wrap;word-break:break-word}
+button{font:inherit;border:1px solid #e7e5e4;background:#fff;border-radius:8px;padding:5px 10px;cursor:pointer}
+</style></head><body><div class="wm">SAMPLE · PORTFOLIO DEMO</div>
+<div class="banner">SAMPLE / PORTFOLIO DEMO · PartnerPulse is fictional · MOCK GoHighLevel — events stored only in this browser (localStorage)</div>
+<div class="wrap"><h1>MOCK GHL capture proof <small class="sub">(static build)</small></h1>
+<p class="sub">Pipeline updates the agent would send to GoHighLevel. On the hosted demo they are kept in your browser; the local build posts them to <code>:8794/capture/ghl</code>. <a href="./">← back to chat</a> · <button id="clr">Clear</button></p>
+<div id="boards"></div><h2>Event log (newest first)</h2><div id="log"></div></div>
+<script>
+const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const all=JSON.parse(localStorage.getItem("pp_ghl_events")||"[]");
+const P={prospect:["New enquiry","AI qualifying","Qualified","Human handoff","Nurture","Unqualified / lost"],partner:["Applied","AI screening","Human review","Talent pool","Declined"]};
+const opps=new Map();for(const c of all){const e=c.body;if(e.type==="opportunity.upsert")opps.set(e.sessionId,{...e.body,mode:e.mode})}
+document.getElementById("boards").innerHTML=Object.entries(P).map(([m,st])=>`<h2>${m==="prospect"?"Prospects · WhatsApp agent":"Partner pipeline"}</h2><div class="board">${st.map(s=>`<div class="col"><div class="ch">${s}</div>${[...opps.values()].filter(o=>o.mode===m&&o.stageName===s).map(o=>{const sc=o.customFields.find(f=>f.key==="ai_score")?.field_value,b=o.customFields.find(f=>f.key==="ai_band")?.field_value;return`<div class="opp"><b>${esc(o.name)}</b><br><span class="b ${b}">${b} · ${sc}</span></div>`}).join("")}</div>`).join("")}</div>`).join("");
+document.getElementById("log").innerHTML=all.slice().reverse().map((c,i)=>`<details ${i<2?"open":""}><summary><b>${esc(c.body.type)}</b> ${esc(c.body.request)} · ${new Date(c.receivedAt).toLocaleString()}</summary><pre>${esc(JSON.stringify(c.body.body,null,2))}</pre></details>`).join("")||'<p class="sub">No events yet — run a sample lead in the chat.</p>';
+document.getElementById("clr").onclick=()=>{localStorage.removeItem("pp_ghl_events");location.reload()};
+</script></body></html>

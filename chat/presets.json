@@ -1,0 +1,102 @@
+{
+  "watermark": "SAMPLE / PORTFOLIO DEMO — PartnerPulse (fictional). All leads below are invented.",
+  "presets": [
+    {
+      "id": "hot-prospect-kopi",
+      "mode": "prospect",
+      "title": "Hot prospect · Kopi & Co (F&B)",
+      "blurb": "Came from website form → context carried over. Missed weekend catering orders, S$12k, ASAP. Expect: QUALIFIED → call → human handoff.",
+      "expect": "qualified → handoff",
+      "context": {
+        "source": "Website form · /whatsapp-automation",
+        "page": "WhatsApp automation page",
+        "name": "Rachel Ng",
+        "company": "Kopi & Co Pte Ltd",
+        "phone": "+65 9000 0101 (SAMPLE)",
+        "prefill": {
+          "need": {
+            "value": "whatsapp",
+            "display": "WhatsApp enquiries / chatbot"
+          },
+          "company": {
+            "value": "Kopi & Co Pte Ltd",
+            "display": "Kopi & Co Pte Ltd",
+            "flags": {
+              "registered": true
+            }
+          }
+        }
+      },
+      "script": [
+        "F&B, we run 4 cafes plus corporate catering",
+        "about 35 staff",
+        "Outlet managers reply WhatsApp when free. Weekends we miss a lot of catering orders",
+        "ASAP, before the December catering season",
+        "Around 12k. Can claim PSG?",
+        "I'm the director",
+        "Yes, tomorrow afternoon after 3pm"
+      ]
+    },
+    {
+      "id": "partner-northbeam",
+      "mode": "partner",
+      "title": "Strong partner · Northbeam Studio (web/app)",
+      "blurb": "SG studio, 10 people, since 2017, measurable case study, portfolio links, white-label yes. Expect: QUALIFIED → routed to human review.",
+      "expect": "qualified → human review",
+      "context": null,
+      "script": [
+        "We do web and mobile app dev, mostly React and Flutter. Also some UI/UX.",
+        "Northbeam Studio Pte Ltd, based in Singapore (Ubi)",
+        "8 devs + 2 designers",
+        "Mostly retail, logistics and education",
+        "Since 2017",
+        "Built a booking app for a chain of tuition centres — 12k bookings in the first 3 months, cut admin calls by 60%",
+        "northbeam.example/work and behance.net/northbeam-sample",
+        "Usually S$15k–60k per project",
+        "Yes, we already do white-label for 2 agencies",
+        "2-3 per month"
+      ]
+    },
+    {
+      "id": "skeptic-small-shop",
+      "mode": "prospect",
+      "title": "Skeptical + vague · solo online shop",
+      "blurb": "Asks price first, asks if it's a bot, short answers, 'dunno' on budget. Expect: handles skepticism + vagueness → NURTURE (no hard sell).",
+      "expect": "nurture",
+      "context": null,
+      "script": [
+        "how much ah",
+        "just want a bot to reply customers",
+        "is this a bot?",
+        "continue",
+        "small online shop, just me",
+        "I reply myself lor, sometimes late at night",
+        "why should I pay you, my nephew can set up a bot for free",
+        "no rush, just looking",
+        "dunno",
+        "lower than that",
+        "me"
+      ]
+    },
+    {
+      "id": "partner-unsuitable",
+      "mode": "partner",
+      "title": "Unsuitable partner · new freelancer",
+      "blurb": "Social posting, 6 months in, no portfolio, very low pricing, vague capacity. Expect: polite REJECT with clear reasons.",
+      "expect": "reject",
+      "context": null,
+      "script": [
+        "social media posting",
+        "Freelance, no company yet. Based in JB",
+        "anything",
+        "F&B lah",
+        "started 6 months ago",
+        "helped my friend bakery instagram",
+        "dont have yet",
+        "$300 per month",
+        "can",
+        "many"
+      ]
+    }
+  ]
+}
